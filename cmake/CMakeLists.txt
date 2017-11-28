@@ -19,6 +19,10 @@ if (BUILD_SHARED_LIBS)
 else (BUILD_SHARED_LIBS)
   set(protobuf_BUILD_SHARED_LIBS_DEFAULT OFF)
 endif (BUILD_SHARED_LIBS)
+if(MSVC)
+  set(protobuf_BUILD_SHARED_LIBS_DEFAULT ON)
+endif(MSVC)
+
 option(protobuf_BUILD_SHARED_LIBS "Build Shared Libraries" ${protobuf_BUILD_SHARED_LIBS_DEFAULT})
 include(CMakeDependentOption)
 cmake_dependent_option(protobuf_MSVC_STATIC_RUNTIME "Link static runtime libraries" ON

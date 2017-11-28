@@ -94,7 +94,7 @@ set(libprotoc_files
 
 add_library(libprotoc ${protobuf_SHARED_OR_STATIC}
   ${libprotoc_files})
-target_link_libraries(libprotoc libprotobuf)
+target_link_libraries(libprotoc protobuf)
 if(MSVC AND protobuf_BUILD_SHARED_LIBS)
   target_compile_definitions(libprotoc
     PUBLIC  PROTOBUF_USE_DLLS
@@ -102,5 +102,4 @@ if(MSVC AND protobuf_BUILD_SHARED_LIBS)
 endif()
 set_target_properties(libprotoc PROPERTIES
     COMPILE_DEFINITIONS LIBPROTOC_EXPORTS
-    OUTPUT_NAME ${LIB_PREFIX}protoc
     DEBUG_POSTFIX "${protobuf_DEBUG_POSTFIX}")
