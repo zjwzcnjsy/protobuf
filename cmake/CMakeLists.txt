@@ -149,15 +149,6 @@ include_directories(
   ${protobuf_BINARY_DIR}
   ${protobuf_source_dir}/src)
 
-if (MSVC)
-  # Add the "lib" prefix for generated .lib outputs.
-  set(LIB_PREFIX lib)
-else (MSVC)
-  # When building with "make", "lib" prefix will be added automatically by
-  # the build tool.
-  set(LIB_PREFIX)
-endif (MSVC)
-
 include(libprotobuf-lite.cmake)
 include(libprotobuf.cmake)
 include(libprotoc.cmake)
